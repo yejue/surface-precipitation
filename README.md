@@ -13,7 +13,7 @@
 
 请求体设置:
 
-```json
+```python
 {
     "config_name": "test",
     "config_code": "1",
@@ -24,7 +24,7 @@
 
 配置体设置：
 
-```json
+```python
 {
     0: {
         "algorithm_name": "name1",
@@ -131,7 +131,7 @@ class AlgorithmModel(BaseModel):
 
 返回参数示例：
 
-```json
+```python
 # 默认返回
 {
     result_code: "200",
@@ -214,7 +214,7 @@ class AlgorithmModel(BaseModel):
 
 返回参数示例：
 
-```json
+```python
 # 默认返回
 {
     result_code: "200",
@@ -256,7 +256,7 @@ class AlgorithmModel(BaseModel):
 
 返回参数示例：
 
-```json
+```python
 # 默认返回
 {
     result_code: "200",
@@ -293,7 +293,7 @@ class AlgorithmModel(BaseModel):
 
 返回参数示例：
 
-```json
+```python
 # 默认返回
 {
     result_code: "200",
@@ -334,7 +334,7 @@ class AlgorithmModel(BaseModel):
 
 返回参数示例：
 
-```json
+```python
 # 默认返回
 {
     "result_code": "200", 
@@ -379,7 +379,7 @@ class AlgorithmModel(BaseModel):
 
 返回参数示例：
 
-```json
+```python
 # 默认返回
 {
     result_code: "200",
@@ -423,7 +423,7 @@ class AlgorithmModel(BaseModel):
 
 返回参数示例：
 
-```json
+```python
 # 默认返回
 {
     result_code: "200",
@@ -492,7 +492,7 @@ class AlgorithmModel(BaseModel):
 
 返回参数示例：
 
-```json
+```python
 {
     result_code: "200",
     message: "成功",
@@ -558,7 +558,7 @@ class AlgorithmModel(BaseModel):
 
 返回参数示例：
 
-```json
+```python
 {
     result_code: "200",
     message: "成功",
@@ -567,8 +567,6 @@ class AlgorithmModel(BaseModel):
     ]
 }
 ```
-
-##### 
 
 ## 二、Quick Start
 
