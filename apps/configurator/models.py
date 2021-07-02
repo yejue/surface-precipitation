@@ -29,7 +29,7 @@ class AlgorithmModel(BaseModel):
 
     algorithm_name = models.CharField("算法名", max_length=128, unique=True, help_text="算法名")
     algorithm_code = models.IntegerField("算法码", unique=True, help_text="算法码")
-    qc_code = models.IntegerField("质控码", unique=True, help_text="质控码")
+    qc_code = models.CharField("质控码", max_length=64, unique=True, help_text="质控码")
     is_stop = models.BooleanField("是否停用", default=False, help_text="是否停用")
 
     def __str__(self):
