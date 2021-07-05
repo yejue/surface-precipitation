@@ -573,20 +573,19 @@ class AlgorithmModel(BaseModel):
 ### 2.1 How to run
 
 1. 下载本项目。
-
 2. 安装对应版本 python 库。 `pip install -r requirements.txt`
-
 3. 配置 mysql
 
    - 创建数据库 surface_rainfall_sys `create database surface_rainfall_sys  `。
-
-   - 添加账号 sl。`create user 'sl'@'host' `
+- 添加账号 sl。`create user 'sl'@'host' `
    - 将对应数据库权限赋予 sl。`grant all privileges on surface_rainfall_sys.* to 'sl'@'%' identified by 'sl@123'`
-
-3. 数据库迁移
+4. 配置 sqllite （数据库配置 2 选 1）
+   - 使用默认 sqlite3 引擎
+   - 用于解决麒麟无法使用 mysqlclient 引擎的问题
+5. 数据库迁移
    - 制作迁移 `python manage.py makemigrations`
    - 执行迁移 `python manage.py migrate`
    - 注意：在上传代码的时候，不允许将 migrations 上传
-4. 运行
+6. 运行
    - `python manage.py runserver 0:8000`
 
