@@ -79,14 +79,23 @@ WSGI_APPLICATION = 'surface_precipitation_0_6.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'surface_rainfall_sys',
+#         'USER': 'sl',
+#         'PASSWORD': 'sl@123',
+#         'PORT': '3306',
+#         'HOST': 'localhost'
+#     }
+# }
+
+# DATABASES 默认使用 sqlite3 场景, 为方便转移，将上述 DATABASES 注释
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'surface_rainfall_sys',
-        'USER': 'sl',
-        'PASSWORD': 'sl@123',
-        'PORT': '3306',
-        'HOST': 'localhost'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': Path(BASE_DIR).joinpath('db.sqlite3'),
     }
 }
 
