@@ -52,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'middleware.visitor.GuestOperationMiddleware',
 ]
 
 ROOT_URLCONF = 'surface_precipitation_0_6.urls'
@@ -150,3 +151,80 @@ CORS_ALLOW_HEADERS = [
     "XMLHttpRequest", "X_FILENAME", "accept-encoding", "authorization", "content-type",
     "dnt", "origin", "user-agent", "x-csrftoken", "x-requested-with", "Pragma"
 ]
+
+# 日志配置
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s module:%(module)s lineno:%(lineno)d %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(module)s %(lineno)d %(message)s'
+        },
+        "visitor": {
+            "format": "%(levelname)s %(asctime)s %(message)s"
+        }
+    },
+    'filters': {
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue',
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'filters': ['require_debug_true'],
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple'
+        },
+        'file': {
+            'level': 'INFO',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': Path(BASE_DIR).joinpath("logs/operations.log"),
+            # 单个日志文件最大字节数
+            'maxBytes': 300 * 1024 * 1024,
+            # 日志文件个数
+            'backupCount': 10,
+            'formatter': 'verbose'
+        },
+        'file2': {
+            'level': 'INFO',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': Path(BASE_DIR).joinpath("logs/system.log"),
+            # 单个日志文件最大字节数
+            'maxBytes': 300 * 1024 * 1024,
+            # 日志文件个数
+            'backupCount': 10,
+            'formatter': 'verbose'
+        },
+        'file3': {
+            'level': 'INFO',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': Path(BASE_DIR).joinpath("logs/visitor.log"),
+            # 单个日志文件最大字节数
+            'maxBytes': 300 * 1024 * 1024,
+            # 日志文件个数
+            'backupCount': 10,
+            'formatter': 'verbose'
+        },
+    },
+    'loggers': {
+        'operations': {
+            'handlers': ['console', 'file'],
+            'propagate': True,
+            'level': 'INFO',
+        },
+        'system': {
+            'handlers': ['console', 'file2'],
+            'propagate': True,
+            'level': 'INFO',
+        },
+        'visitor': {
+            'handlers': ['console', 'file3'],
+            'propagate': True,
+            'level': 'INFO',
+        },
+    }
+}
