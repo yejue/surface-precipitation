@@ -11,7 +11,7 @@
 | string              | integer             | text                | string        |
 | unique              | unique              |                     |               |
 
-请求体设置:
+完整的 http 请求体设置:
 
 ```python
 {
@@ -22,7 +22,7 @@
 }
 ```
 
-配置体设置：
+其中的配置体设置示例：
 
 ```python
 {
